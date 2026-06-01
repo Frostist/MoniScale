@@ -2,7 +2,7 @@
 
 **MoniScale** is a lightweight macOS menu bar app that unlocks higher display resolutions on external monitors — no paid software, no system extensions, no bloat.
 
-![macOS 26+](https://img.shields.io/badge/macOS-26%2B-black) ![Swift](https://img.shields.io/badge/Swift-5.0-orange) ![License](https://img.shields.io/badge/license-MIT-blue)
+![macOS 26+](https://img.shields.io/badge/macOS-26%2B-black) ![Swift](https://img.shields.io/badge/Swift-6.0-orange) ![License](https://img.shields.io/badge/license-MIT-blue)
 
 > **Note:** This app is in Beta and while it works, it is currently very laggy in some instances. But updates coming out soon!
 ---
