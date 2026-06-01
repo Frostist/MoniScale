@@ -8,7 +8,7 @@
 
 ## The Problem
 
-macOS restricts the available scaled resolutions on external monitors to whatever the display natively advertises. If you own a 1080p or 1440p external monitor, you're stuck with a handful of low-quality scaled modes — no crisp 2K rendering, no 4K-downsampled sharpness, even if your GPU is more than capable of driving it.
+macOS restricts the available scaled resolutions on external monitors to whatever the display natively advertises. If you own a 1080p or 1440p external monitor, you're stuck with a handful of low-quality scaled modes — no 2K rendering, no 4K, even if your Mac is more than capable of driving it.
 
 Tools that fix this are either expensive, bloated with features you don't need, or require persistent system extensions.
 
