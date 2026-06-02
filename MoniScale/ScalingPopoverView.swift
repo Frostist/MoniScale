@@ -85,6 +85,7 @@ private struct MonitorSliderRow: View {
                         guard !isEditing else { return }  // apply only on release, not during drag
                         let idx = Int(sliderValue.rounded())
                         guard idx < monitor.modes.count else { return }
+                        sliderValue = Double(idx)  // snap thumb to integer position
                         onSetMode(idx)
                     }
                 )
