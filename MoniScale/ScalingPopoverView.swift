@@ -81,7 +81,6 @@ private struct MonitorSliderRow: View {
                 Slider(
                     value: $sliderValue,
                     in: 0...Double(max(monitor.modes.count - 1, 1)),
-                    step: 1,
                     onEditingChanged: { isEditing in
                         guard !isEditing else { return }  // apply only on release, not during drag
                         let idx = Int(sliderValue.rounded())
