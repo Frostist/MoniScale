@@ -15,6 +15,7 @@ struct DisplayMode {
     let height: UInt32
     let refreshRate: UInt16
     let isHiDPI: Bool
+    let availableRates: [(rate: UInt16, cgsIndex: Int32)]  // sorted ascending
     var isVirtual: Bool { index == -1 }
 }
 
@@ -23,6 +24,7 @@ struct MonitorInfo: Identifiable {
     let name: String
     let modes: [DisplayMode]
     var currentModeIndex: Int
+    var currentRefreshRate: UInt16
 }
 
 @MainActor
@@ -76,14 +78,17 @@ class DisplayManager: ObservableObject {
             let allModes = nativeModes + virtualModes
 
             let currentModeIndex: Int
+            let currentRefreshRate: UInt16
             if let virtualIdx = activeVirtualModeIndices[id] {
                 currentModeIndex = virtualIdx
+                currentRefreshRate = 60
             } else {
-                let (curW, curH) = Self.currentLogicalSize(for: id)
+                let (curW, curH, curFreq) = Self.currentDisplayState(for: id)
                 currentModeIndex = allModes.firstIndex { $0.width == curW && $0.height == curH } ?? 0
+                currentRefreshRate = curFreq > 0 ? curFreq : (allModes.first?.refreshRate ?? 60)
             }
 
-            result.append(MonitorInfo(id: id, name: name, modes: allModes, currentModeIndex: currentModeIndex))
+            result.append(MonitorInfo(id: id, name: name, modes: allModes, currentModeIndex: currentModeIndex, currentRefreshRate: currentRefreshRate))
         }
         self.monitors = result.sorted { $0.name.lowercased() < $1.name.lowercased() }
     }
@@ -99,6 +104,16 @@ class DisplayManager: ObservableObject {
             clearVirtualMode(for: displayID)
             setNativeMode(displayID: displayID, cgsIndex: mode.index)
         }
+    }
+
+    func setRefreshRate(displayID: CGDirectDisplayID, rate: UInt16) {
+        guard let monIdx = monitors.firstIndex(where: { $0.id == displayID }) else { return }
+        let modeIdx = monitors[monIdx].currentModeIndex
+        guard modeIdx < monitors[monIdx].modes.count else { return }
+        guard let entry = monitors[monIdx].modes[modeIdx].availableRates.first(where: { $0.rate == rate }) else { return }
+        monitors[monIdx].currentRefreshRate = rate
+        setNativeMode(displayID: displayID, cgsIndex: entry.cgsIndex)
+        // display reconfiguration callback fires → detectDisplays() reconciles actual state
     }
 
     // Remove all virtual displays — call before app termination
@@ -198,32 +213,45 @@ class DisplayManager: ObservableObject {
 
     // MARK: - Static helpers
 
-    nonisolated static func deduplicateAndSort(
+    nonisolated static func groupByResolution(
         _ raw: [(index: Int32, width: UInt32, height: UInt32, density: Float, freq: UInt16)]
     ) -> [DisplayMode] {
-        var best: [String: (index: Int32, width: UInt32, height: UInt32, density: Float, freq: UInt16)] = [:]
+        // Group by resolution; within each group keep only entries at the best (highest) density,
+        // then collect all distinct refresh rates at that density.
+        struct Group {
+            var density: Float
+            var rates: [(rate: UInt16, cgsIndex: Int32)]
+        }
+        var groups: [String: Group] = [:]
         for entry in raw {
             let key = "\(entry.width)x\(entry.height)"
-            if let existing = best[key] {
-                if entry.density > existing.density ||
-                   (entry.density == existing.density && entry.freq > existing.freq) {
-                    best[key] = entry
+            if var g = groups[key] {
+                if entry.density > g.density {
+                    g = Group(density: entry.density, rates: [(entry.freq, entry.index)])
+                } else if entry.density == g.density, !g.rates.contains(where: { $0.rate == entry.freq }) {
+                    g.rates.append((entry.freq, entry.index))
                 }
+                groups[key] = g
             } else {
-                best[key] = entry
+                groups[key] = Group(density: entry.density, rates: [(entry.freq, entry.index)])
             }
         }
-        return best.values
-            .sorted { $0.width * $0.height < $1.width * $1.height }
-            .map { entry in
-                DisplayMode(
-                    index: entry.index,
-                    width: entry.width,
-                    height: entry.height,
-                    refreshRate: entry.freq,
-                    isHiDPI: entry.density > 1.0
-                )
-            }
+        return groups.map { key, g in
+            let parts = key.split(separator: "x")
+            let w = UInt32(parts[0])!
+            let h = UInt32(parts[1])!
+            let sortedRates = g.rates.sorted { $0.rate < $1.rate }
+            let best = sortedRates.last!
+            return DisplayMode(
+                index: best.cgsIndex,
+                width: w,
+                height: h,
+                refreshRate: best.rate,
+                isHiDPI: g.density > 1.0,
+                availableRates: sortedRates
+            )
+        }
+        .sorted { $0.width * $0.height < $1.width * $1.height }
     }
 
     // Predefined above-native virtual resolutions (non-HiDPI scaled modes), 1080p → 4K
@@ -240,7 +268,7 @@ class DisplayManager: ObservableObject {
         ]
         return candidates.compactMap { (w, h) in
             guard w * h > nativePixels else { return nil }
-            return DisplayMode(index: -1, width: w, height: h, refreshRate: 60, isHiDPI: false)
+            return DisplayMode(index: -1, width: w, height: h, refreshRate: 60, isHiDPI: false, availableRates: [(60, -1)])
         }
     }
 
@@ -295,15 +323,15 @@ class DisplayManager: ObservableObject {
             raw.append((index: i, width: modeDesc.width, height: modeDesc.height,
                         density: modeDesc.density, freq: modeDesc.freq))
         }
-        return deduplicateAndSort(raw)
+        return groupByResolution(raw)
     }
 
-    private static func currentLogicalSize(for id: CGDirectDisplayID) -> (width: UInt32, height: UInt32) {
+    private static func currentDisplayState(for id: CGDirectDisplayID) -> (width: UInt32, height: UInt32, freq: UInt16) {
         var current: Int32 = 0
         var modeDesc = CGSDisplayMode()
         let modeSize = Int32(MemoryLayout<CGSDisplayMode>.size)
         CGSGetCurrentDisplayMode(id, &current)
         CGSGetDisplayModeDescriptionOfLength(id, current, &modeDesc, modeSize)
-        return (modeDesc.width, modeDesc.height)
+        return (modeDesc.width, modeDesc.height, modeDesc.freq)
     }
 }
