@@ -7,166 +7,120 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CCDA4CD22FC769D7003B44CC /* CoreDisplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDA4CD12FC769D7003B44CC /* CoreDisplay.framework */; };
+		CC2B24DA2FD56A8300DAE8D3 /* CoreDisplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2B24D72FD56A7500DAE8D3 /* CoreDisplay.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CCDA4CB12FC769D8003B44CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CCDA4C992FC769D7003B44CB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CCDA4CA02FC769D7003B44CB;
-			remoteInfo = MoniScale;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		CCDA4CD12FC769D7003B44CC /* CoreDisplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreDisplay.framework; path = ../../../../../System/Library/Frameworks/CoreDisplay.framework; sourceTree = "<group>"; };
+		CC2B24A12FD5695D00DAE8D3 /* MoniScale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoniScale.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC2B24D72FD56A7500DAE8D3 /* CoreDisplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreDisplay.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		CCDA4CA32FC769D7003B44CB /* MoniScale */ = {
+		CC2B24A32FD5695D00DAE8D3 /* MoniScale */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = MoniScale;
-			sourceTree = "<group>";
-		};
-		CCDA4CB32FC769D8003B44CB /* MoniScaleTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MoniScaleTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CCDA4C9E2FC769D7003B44CB /* Frameworks */ = {
+		CC2B249E2FD5695D00DAE8D3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCDA4CD22FC769D7003B44CC /* CoreDisplay.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CCDA4CAD2FC769D8003B44CB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				CC2B24DA2FD56A8300DAE8D3 /* CoreDisplay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CCDA4C982FC769D7003B44CB = {
+		CC2B24982FD5695D00DAE8D3 = {
 			isa = PBXGroup;
 			children = (
-				CCDA4CA32FC769D7003B44CB /* MoniScale */,
-				CCDA4CB32FC769D8003B44CB /* MoniScaleTests */,
-				CCDA4CD32FC769D7003B44CC /* Frameworks */,
+				CC2B24A32FD5695D00DAE8D3 /* MoniScale */,
+				CC2B24D82FD56A7500DAE8D3 /* Frameworks */,
+				CC2B24A22FD5695D00DAE8D3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CCDA4CD32FC769D7003B44CC /* Frameworks */ = {
+		CC2B24A22FD5695D00DAE8D3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CCDA4CD12FC769D7003B44CC /* CoreDisplay.framework */,
+				CC2B24A12FD5695D00DAE8D3 /* MoniScale.app */,
 			);
-			name = Frameworks;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC2B24D82FD56A7500DAE8D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC2B24D72FD56A7500DAE8D3 /* CoreDisplay.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CCDA4CA02FC769D7003B44CB /* MoniScale */ = {
+		CC2B24A02FD5695D00DAE8D3 /* MoniScale */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CCDA4CC42FC769D8003B44CB /* Build configuration list for PBXNativeTarget "MoniScale" */;
+			buildConfigurationList = CC2B24AE2FD5695D00DAE8D3 /* Build configuration list for PBXNativeTarget "MoniScale" */;
 			buildPhases = (
-				CCDA4C9D2FC769D7003B44CB /* Sources */,
-				CCDA4C9E2FC769D7003B44CB /* Frameworks */,
-				CCDA4C9F2FC769D7003B44CB /* Resources */,
+				CC2B249D2FD5695D00DAE8D3 /* Sources */,
+				CC2B249E2FD5695D00DAE8D3 /* Frameworks */,
+				CC2B249F2FD5695D00DAE8D3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				CCDA4CA32FC769D7003B44CB /* MoniScale */,
+				CC2B24A32FD5695D00DAE8D3 /* MoniScale */,
 			);
 			name = MoniScale;
 			packageProductDependencies = (
 			);
 			productName = MoniScale;
+			productReference = CC2B24A12FD5695D00DAE8D3 /* MoniScale.app */;
 			productType = "com.apple.product-type.application";
-		};
-		CCDA4CAF2FC769D8003B44CB /* MoniScaleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CCDA4CC72FC769D8003B44CB /* Build configuration list for PBXNativeTarget "MoniScaleTests" */;
-			buildPhases = (
-				CCDA4CAC2FC769D8003B44CB /* Sources */,
-				CCDA4CAD2FC769D8003B44CB /* Frameworks */,
-				CCDA4CAE2FC769D8003B44CB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CCDA4CB22FC769D8003B44CB /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				CCDA4CB32FC769D8003B44CB /* MoniScaleTests */,
-			);
-			name = MoniScaleTests;
-			packageProductDependencies = (
-			);
-			productName = MoniScaleTests;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CCDA4C992FC769D7003B44CB /* Project object */ = {
+		CC2B24992FD5695D00DAE8D3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2650;
 				LastUpgradeCheck = 2650;
 				TargetAttributes = {
-					CCDA4CA02FC769D7003B44CB = {
+					CC2B24A02FD5695D00DAE8D3 = {
 						CreatedOnToolsVersion = 26.5;
-					};
-					CCDA4CAF2FC769D8003B44CB = {
-						CreatedOnToolsVersion = 26.5;
-						TestTargetID = CCDA4CA02FC769D7003B44CB;
 					};
 				};
 			};
-			buildConfigurationList = CCDA4C9C2FC769D7003B44CB /* Build configuration list for PBXProject "MoniScale" */;
+			buildConfigurationList = CC2B249C2FD5695D00DAE8D3 /* Build configuration list for PBXProject "MoniScale" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = CCDA4C982FC769D7003B44CB;
+			mainGroup = CC2B24982FD5695D00DAE8D3;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = CCDA4C982FC769D7003B44CB;
+			productRefGroup = CC2B24A22FD5695D00DAE8D3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CCDA4CA02FC769D7003B44CB /* MoniScale */,
-				CCDA4CAF2FC769D8003B44CB /* MoniScaleTests */,
+				CC2B24A02FD5695D00DAE8D3 /* MoniScale */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CCDA4C9F2FC769D7003B44CB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CCDA4CAE2FC769D8003B44CB /* Resources */ = {
+		CC2B249F2FD5695D00DAE8D3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -176,14 +130,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CCDA4C9D2FC769D7003B44CB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CCDA4CAC2FC769D8003B44CB /* Sources */ = {
+		CC2B249D2FD5695D00DAE8D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -192,16 +139,8 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		CCDA4CB22FC769D8003B44CB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CCDA4CA02FC769D7003B44CB /* MoniScale */;
-			targetProxy = CCDA4CB12FC769D8003B44CB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		CCDA4CC22FC769D8003B44CB /* Debug */ = {
+		CC2B24AC2FD5695D00DAE8D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -255,7 +194,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -265,7 +204,7 @@
 			};
 			name = Debug;
 		};
-		CCDA4CC32FC769D8003B44CB /* Release */ = {
+		CC2B24AD2FD5695D00DAE8D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -313,7 +252,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -321,22 +260,27 @@
 			};
 			name = Release;
 		};
-		CCDA4CC52FC769D8003B44CB /* Debug */ = {
+		CC2B24AF2FD5695D00DAE8D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = C988RG9LT2;
-				ENABLE_APP_SANDBOX = NO;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MoniScale",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MoniScale;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -357,22 +301,27 @@
 			};
 			name = Debug;
 		};
-		CCDA4CC62FC769D8003B44CB /* Release */ = {
+		CC2B24B02FD5695D00DAE8D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = C988RG9LT2;
-				ENABLE_APP_SANDBOX = NO;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MoniScale",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MoniScale;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -390,82 +339,31 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "MoniScale/MoniScale-Bridging-Header.h";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		CCDA4CC82FC769D8003B44CB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C988RG9LT2;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Frostech.MoniScaleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoniScale.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoniScale";
-			};
-			name = Debug;
-		};
-		CCDA4CC92FC769D8003B44CB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C988RG9LT2;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Frostech.MoniScaleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoniScale.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoniScale";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CCDA4C9C2FC769D7003B44CB /* Build configuration list for PBXProject "MoniScale" */ = {
+		CC2B249C2FD5695D00DAE8D3 /* Build configuration list for PBXProject "MoniScale" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CCDA4CC22FC769D8003B44CB /* Debug */,
-				CCDA4CC32FC769D8003B44CB /* Release */,
+				CC2B24AC2FD5695D00DAE8D3 /* Debug */,
+				CC2B24AD2FD5695D00DAE8D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CCDA4CC42FC769D8003B44CB /* Build configuration list for PBXNativeTarget "MoniScale" */ = {
+		CC2B24AE2FD5695D00DAE8D3 /* Build configuration list for PBXNativeTarget "MoniScale" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CCDA4CC52FC769D8003B44CB /* Debug */,
-				CCDA4CC62FC769D8003B44CB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CCDA4CC72FC769D8003B44CB /* Build configuration list for PBXNativeTarget "MoniScaleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CCDA4CC82FC769D8003B44CB /* Debug */,
-				CCDA4CC92FC769D8003B44CB /* Release */,
+				CC2B24AF2FD5695D00DAE8D3 /* Debug */,
+				CC2B24B02FD5695D00DAE8D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CCDA4C992FC769D7003B44CB /* Project object */;
+	rootObject = CC2B24992FD5695D00DAE8D3 /* Project object */;
 }
