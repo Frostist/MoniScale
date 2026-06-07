@@ -6,7 +6,8 @@
 
 > **Note:** This app is in Beta and while it works, it is currently very laggy in some instances. But updates coming out soon!
 ---
-<img width="285" height="310" alt="image" src="https://github.com/user-attachments/assets/9052cc86-91d9-4412-82b8-4252dd81a623" />
+
+<img width="504" height="679" alt="HKMq6WEWgAAFevT" src="https://github.com/user-attachments/assets/4460bb79-d6ff-4863-a1ff-4d7a27682fe6" />
 
 Allowing the adjustment of Monitor scaling in the macOS toolbar.
 
